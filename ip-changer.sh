@@ -23,7 +23,7 @@ function refreshServerList() {
         if [ "$grep" != "" ]; then grep="$grep\|"; fi
         grep="$grep|$c|"
     done
-    curl https://s3.amazonaws.com/hma-zendesk/linux/servers-cli.txt 2>/dev/null | grep -i -e "$grep" | grep -i -e "| udp" > /tmp/hma-servers 2>/dev/null
+    curl https://s3.amazonaws.com/hma-zendesk/linux/servers-cli.txt > /tmp/hma-servers
     serverList=`cat /tmp/hma-servers`
     count=`echo "$serverList" | wc -l`
     # Explode
