@@ -27,11 +27,9 @@ function refreshServerList() {
     if [ $? -eq 0 ]; then
         serverList_=`cat /tmp/hma-servers_`
         count_=`echo "$serverList_" | wc -l`
-        if [ ${count_} -ge 1 ]; then
-            serverList="$serverList_"
-            count=${count_}
-            mv /tmp/hma-servers_ /tmp/hma-servers
-        fi
+        serverList="$serverList_"
+        count=${count_}
+        mv /tmp/hma-servers_ /tmp/hma-servers
         serverList_=""
         count_=""
     else
