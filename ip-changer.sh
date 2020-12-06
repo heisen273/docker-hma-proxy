@@ -23,7 +23,7 @@ function refreshServerList() {
         if [ "$grep" != "" ]; then grep="$grep\|"; fi
         grep="$grep|$c|"
     done
-    curl https://securenetconnection.com/vpnconfig/servers-cli.php 2>/dev/null | grep -i -e "$grep" | grep -i -e "|udp|" > /tmp/hma-servers_ 2>/dev/null
+    curl https://s3.amazonaws.com/hma-zendesk/linux/servers-cli.txt 2>/dev/null | grep -i -e "$grep" | grep -i -e "|udp|" > /tmp/hma-servers_ 2>/dev/null
     if [ $? -eq 0 ]; then
         serverList_=`cat /tmp/hma-servers_`
         count_=`echo "$serverList_" | wc -l`
