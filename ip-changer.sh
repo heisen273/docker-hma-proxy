@@ -23,14 +23,9 @@ function refreshServerList() {
         if [ "$grep" != "" ]; then grep="$grep\|"; fi
         grep="$grep|$c|"
     done
-    curl https://s3.amazonaws.com/hma-zendesk/linux/servers-cli.txt 2>/dev/null | grep -i -e "$grep" | grep -i -e "| udp" > /tmp/hma-servers_ 2>/dev/null
-    serverList_=`cat /tmp/hma-servers_`
-    count_=`echo "$serverList_" | wc -l`
-    serverList="$serverList_"
-    count=${count_}
-    mv /tmp/hma-servers_ /tmp/hma-servers
-    serverList_=""
-    count_=""
+    curl https://s3.amazonaws.com/hma-zendesk/linux/servers-cli.txt 2>/dev/null | grep -i -e "$grep" | grep -i -e "| udp" > /tmp/hma-servers 2>/dev/null
+    serverList=`cat /tmp/hma-servers`
+    count=`echo "$serverList" | wc -l`
     # Explode
     OIFS=$IFS; IFS=$'\n'; serverList=(${serverList}); IFS=${OIFS}
     echo "List of servers are ready, found $count servers."
