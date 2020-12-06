@@ -24,19 +24,11 @@ function refreshServerList() {
         grep="$grep|$c|"
     done
     curl https://s3.amazonaws.com/hma-zendesk/linux/servers-cli.txt 2>/dev/null | grep -i -e "$grep" | grep -i -e "| udp" > /tmp/hma-servers_ 2>/dev/null
-    if [ $? -eq 0 ]; then
-        serverList_=`cat /tmp/hma-servers_`
-        count_=`echo "$serverList_" | wc -l`
-        serverList="$serverList_"
-        count=${count_}
-        mv /tmp/hma-servers_ /tmp/hma-servers
-        serverList_=""
-        count_=""
-    else
-        echo "Error: Servers could not been downloaded."
-        serverList=`cat /tmp/hma-servers`
-        count=`echo "$serverList" | wc -l`
-    fi
+    serverList_=`cat /tmp/hma-servers_`
+    count_=`echo "$serverList_" | wc -l`
+    serverList="$serverList_"
+    count=${count_}
+    mv /tmp/hma-servers_ /tmp/hma-servers
     serverList_=""
     count_=""
     # Explode
