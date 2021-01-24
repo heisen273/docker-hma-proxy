@@ -1,7 +1,7 @@
 FROM python:2.7-alpine
 MAINTAINER Adam Wallner <wallner@bitbaro.hu>
 
-RUN apk add --update openvpn bash curl tinyproxy && \
+RUN apk add --update openvpn bash curl tinyproxy ncurses dialog fping vim openrc && \
     rm -rf /var/cache/apk/* && \
     adduser -S -D -H -u 501 -G tinyproxy -g "Proxy1" proxy1 && \
     adduser -S -D -H -u 502 -G tinyproxy -g "Proxy2" proxy2 && \
