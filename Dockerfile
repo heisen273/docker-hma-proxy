@@ -1,5 +1,4 @@
 FROM python:2.7-alpine
-MAINTAINER Adam Wallner <wallner@bitbaro.hu>
 
 RUN apk add --update openvpn bash curl tinyproxy ncurses dialog fping vim openrc && \
     rm -rf /var/cache/apk/* && \
