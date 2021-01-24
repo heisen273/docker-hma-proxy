@@ -183,7 +183,7 @@ class RequestHandler(ProxyRequestHandler):
 
 
 # Start IP changer thread
-ipChanger = IPChangerThread()
+# ipChanger = IPChangerThread()
 
 # Start proxy server
 server_address = (HOST, PORT)
