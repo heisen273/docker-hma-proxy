@@ -32,7 +32,7 @@ iptables -t mangle -A OUTPUT -j PROXY
 ip rule add fwmark 1 table proxy1
 ip rule add fwmark 2 table proxy2
 
-#ip_changer_pid=0
+ip_changer_pid=0
 # Start the proxy changer in background
 if [ -z ${JUST_PROXY+x} ] || [ ${JUST_PROXY} -eq 0 ]; then
     echo "Starting IP changer..."
