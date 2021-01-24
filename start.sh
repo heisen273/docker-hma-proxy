@@ -51,3 +51,5 @@ proxy_pid=$!
 
 # Wait for proxy to stop
 wait ${proxy_pid}
+
+bash /opt/hma-vpn.sh
