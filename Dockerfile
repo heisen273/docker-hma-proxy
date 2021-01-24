@@ -10,7 +10,7 @@ RUN apk add --update openvpn bash curl tinyproxy ncurses dialog fping vim openrc
 
 COPY config/resolv.conf /etc/resolv.google.conf
 COPY config/rt_tables /etc/iproute2/rt_tables
-COPY credentials /opt/
+COPY config/credentials /opt/
 COPY *.py /opt/
 COPY *.sh /opt/
 COPY config/tinyproxy* /etc/tinyproxy/
