@@ -2,7 +2,7 @@
 
 # Handle signals
 function _trap() {
-#    if [ ${ip_changer_pid} -ne 0 ]; then kill -SIGTERM ${ip_changer_pid} &>/dev/null; wait ${ip_changer_pid}; fi
+    if [ ${ip_changer_pid} -ne 0 ]; then kill -SIGTERM ${ip_changer_pid} &>/dev/null; wait ${ip_changer_pid}; fi
 
     if [ ${proxy_pid} -ne 0 ]; then kill ${proxy_pid} &>/dev/null; wait ${proxy_pid}; fi
 
@@ -35,9 +35,9 @@ ip rule add fwmark 2 table proxy2
 #ip_changer_pid=0
 # Start the proxy changer in background
 if [ -z ${JUST_PROXY+x} ] || [ ${JUST_PROXY} -eq 0 ]; then
-#    echo "Starting IP changer..."
-#    /opt/ip-changer.sh init &
-#    ip_changer_pid=$!
+    echo "Starting IP changer..."
+    /opt/ip-changer.sh init &
+    ip_changer_pid=$!
 
     touch /var/log/tinyproxy/tinyproxy1.log && chown proxy1:tinyproxy /var/log/tinyproxy/tinyproxy1.log
     touch /var/log/tinyproxy/tinyproxy2.log && chown proxy2:tinyproxy /var/log/tinyproxy/tinyproxy2.log
