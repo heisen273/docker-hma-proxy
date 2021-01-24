@@ -1,4 +1,4 @@
-config/hma.env
+config/credentials
 *.pyc
 *.pyo
 .idea
