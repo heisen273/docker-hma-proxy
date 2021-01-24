@@ -1,8 +1,0 @@
-*.pyc
-*.pyo
-*.git
-*.idea/
-.gitignore
-.dockerignore
-config/hma.env
-config/hma.env.template
