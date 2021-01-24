@@ -331,7 +331,7 @@ if [[ $PATH != *"/usr/sbin"* ]]; then PATH=$PATH:/usr/sbin ; fi
 openvpn=`which openvpn`
 port=
 proto=
-authfile='credentials'
+authfile='/opt/credentials'
 list=0
 confonly=0
 stopvpn=0
