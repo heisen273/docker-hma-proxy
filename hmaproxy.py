@@ -154,8 +154,8 @@ class RequestHandler(ProxyRequestHandler):
                     resObj = {'status': 408, 'errorMessage': 'Timeout!', 'proxyNum': proxyNum}
                 break
 
-        if resObj['status'] in (403, 407, 408, 429, 500, 501, 502):
-            changeIP(resObj['proxyNum'], startIpVersion)
+#         if resObj['status'] in (403, 407, 408, 429, 500, 501, 502):
+#             changeIP(resObj['proxyNum'], startIpVersion)
 
         # If all of them returns with error :-/
         if resObj['status'] >= 500 or resObj['status'] in (408, 429):  # Error
